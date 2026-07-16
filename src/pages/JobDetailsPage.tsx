@@ -34,6 +34,7 @@ export const JobDetailsPage = () => {
   const [applyOpen, setApplyOpen] = useState(false)
   const { isSaved, toggleSaved } = useSavedJobs()
   const { showToast } = useToast()
+  const { profile } = useResume()
 
   const job = allJobsWithCompany.find((j) => j.id === jobId)
   const related = useRelatedJobs(job?.id ?? '', job?.companyId ?? '')
@@ -42,7 +43,6 @@ export const JobDetailsPage = () => {
 
   const saved = isSaved(job.id)
   const applied = hasAppliedToJob(job.id)
-  const { profile } = useResume()
 
   const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '')
   const matchingSkills = job.techStack.filter(tech => 

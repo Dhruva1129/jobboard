@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { UploadCloud, FileText, Loader2, CheckCircle } from 'lucide-react'
 import { useResume } from '../../contexts/ResumeContext'
 import { Button } from './Button'
@@ -17,7 +17,7 @@ export const ResumeUploader = ({ onComplete }: { onComplete?: () => void }) => {
   
   const { uploadResume, profile } = useResume()
 
-  const handleDrag = useCallback((e: React.DragEvent) => {
+  const handleDrag = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
     if (e.type === 'dragenter' || e.type === 'dragover') {
@@ -25,7 +25,7 @@ export const ResumeUploader = ({ onComplete }: { onComplete?: () => void }) => {
     } else if (e.type === 'dragleave') {
       setIsDragging(false)
     }
-  }, [])
+  }
 
   const processFile = async (file: File) => {
     setIsUploading(true)
@@ -77,7 +77,7 @@ export const ResumeUploader = ({ onComplete }: { onComplete?: () => void }) => {
     }, 1500)
   }
 
-  const handleDrop = useCallback((e: React.DragEvent) => {
+  const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
     setIsDragging(false)
@@ -85,7 +85,7 @@ export const ResumeUploader = ({ onComplete }: { onComplete?: () => void }) => {
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       processFile(e.dataTransfer.files[0])
     }
-  }, [])
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
