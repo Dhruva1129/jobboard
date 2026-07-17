@@ -20,27 +20,26 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 h-20 pointer-events-none bg-white/70 backdrop-blur-md border-b border-border/50 transition-all duration-300">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
+
         {/* Left: Logo */}
         <div className="pointer-events-auto flex items-center">
-          <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-white shadow-md transition-all duration-300 group-hover:shadow-glow group-hover:scale-105">
-              <Briefcase className="h-4 w-4" strokeWidth={2.25} />
+          <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
+            <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-accent text-white shadow-md transition-all duration-300 group-hover:shadow-glow group-hover:scale-105">
+              <Briefcase className="h-3.5 w-3.5" strokeWidth={2.25} />
             </div>
-            <span className="text-[16px] font-bold tracking-tight text-text-primary">Pathway</span>
+            <span className="text-[14px] font-bold tracking-tight text-text-primary">Pathway</span>
           </Link>
         </div>
 
         {/* Center: Floating Pill */}
-        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 rounded-full border border-border/40 bg-white/80 px-2 py-1.5 shadow-[0_8px_32px_rgba(0,0,0,0.06)] backdrop-blur-xl hidden md:block">
+        <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 rounded-full border border-border/40 bg-white/80 px-1.5 py-1 shadow-[0_8px_32px_rgba(0,0,0,0.06)] backdrop-blur-xl hidden md:block">
           <nav className="flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `relative rounded-full px-4 py-1.5 text-[14px] font-medium transition-all duration-300 ${
-                    isActive ? 'bg-accent text-white shadow-md' : 'text-text-secondary hover:bg-accent-subtle hover:text-accent'
+                  `relative rounded-full px-3 py-1 text-[13px] font-medium transition-all duration-300 ${isActive ? 'bg-accent text-white shadow-md' : 'text-text-secondary hover:bg-accent-subtle hover:text-accent'
                   }`
                 }
               >
@@ -51,8 +50,7 @@ export const Navbar = () => {
               <NavLink
                 to="/recommended"
                 className={({ isActive }) =>
-                  `relative rounded-full px-4 py-1.5 text-[14px] font-medium transition-all duration-300 flex items-center gap-1.5 ${
-                    isActive ? 'bg-accent text-white shadow-md' : 'text-text-secondary hover:bg-accent-subtle hover:text-accent'
+                  `relative rounded-full px-3 py-1 text-[13px] font-medium transition-all duration-300 flex items-center gap-1.5 ${isActive ? 'bg-accent text-white shadow-md' : 'text-text-secondary hover:bg-accent-subtle hover:text-accent'
                   }`
                 }
               >
@@ -65,50 +63,50 @@ export const Navbar = () => {
         {/* Right: Actions */}
         <div className="pointer-events-auto flex items-center gap-2">
           <div className="hidden md:flex items-center gap-2">
-            <Link to="/saved" className="relative flex h-9 w-9 items-center justify-center rounded-full text-text-secondary transition-all duration-300 hover:bg-accent-subtle hover:text-accent" aria-label="Saved jobs">
-              <Bookmark className="h-[18px] w-[18px]" />
+            <Link to="/saved" className="relative flex h-7 w-7 items-center justify-center rounded-full text-text-secondary transition-all duration-300 hover:bg-accent-subtle hover:text-accent" aria-label="Saved jobs">
+              <Bookmark className="h-[16px] w-[16px]" />
               {savedJobIds.length > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-semibold text-white shadow-sm">
+                <span className="absolute -right-0.5 -top-0.5 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-accent px-1 text-[9px] font-semibold text-white shadow-sm">
                   {savedJobIds.length}
                 </span>
               )}
             </Link>
             {!profile.hasUploadedResume ? (
-              <Button size="sm" variant="secondary" className="rounded-full shadow-sm" onClick={() => setIsUploadOpen(true)}>
+              <Button size="sm" variant="secondary" className="rounded-full shadow-sm px-3 py-1 h-7 text-[12px]" onClick={() => setIsUploadOpen(true)}>
                 Upload Resume
               </Button>
             ) : (
-              <div className="flex items-center gap-1 pl-3 pr-1.5 py-1 rounded-full bg-green-50 text-success text-xs font-semibold border border-green-200">
-                <CheckCircle2 className="h-3.5 w-3.5" />
+              <div className="flex items-center gap-1 pl-2.5 pr-1 py-0.5 rounded-full bg-green-50 text-success text-[11px] font-semibold border border-green-200">
+                <CheckCircle2 className="h-3 w-3" />
                 <span className="ml-0.5">Resume Uploaded</span>
                 <button
                   onClick={() => setIsDeleteConfirmOpen(true)}
-                  className="ml-1 flex h-5 w-5 items-center justify-center rounded-full hover:bg-green-200 transition-colors text-success/70 hover:text-success"
+                  className="ml-0.5 flex h-4 w-4 items-center justify-center rounded-full hover:bg-green-200 transition-colors text-success/70 hover:text-success"
                   aria-label="Remove resume"
                 >
-                  <X className="h-3 w-3" strokeWidth={2.5} />
+                  <X className="h-2.5 w-2.5" strokeWidth={2.5} />
                 </button>
               </div>
             )}
-            <Button size="sm" className="rounded-full shadow-sm hover:shadow-md bg-accent border-none hover:shadow-glow" onClick={() => navigate('/jobs')}>
+            <Button size="sm" className="rounded-full shadow-sm hover:shadow-md bg-accent border-none hover:shadow-glow px-3 py-1 h-7 text-[12px]" onClick={() => navigate('/jobs')}>
               Find jobs
             </Button>
           </div>
 
           <button
-            className="flex h-9 w-9 items-center justify-center rounded-full text-text-primary hover:bg-accent-subtle md:hidden pointer-events-auto"
+            className="flex h-7 w-7 items-center justify-center rounded-full text-text-primary hover:bg-accent-subtle md:hidden pointer-events-auto"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu dropdown */}
       {open && (
-        <div className="absolute left-4 right-4 top-20 mt-2 rounded-2xl border border-border/40 bg-white/95 p-3 shadow-lg backdrop-blur-xl md:hidden pointer-events-auto">
+        <div className="absolute left-4 right-4 top-14 mt-2 rounded-2xl border border-border/40 bg-white/95 p-3 shadow-lg backdrop-blur-xl md:hidden pointer-events-auto">
           <nav className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <NavLink
@@ -116,8 +114,7 @@ export const Navbar = () => {
                 to={link.to}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
-                    isActive ? 'bg-accent text-white' : 'text-text-secondary hover:bg-accent-subtle hover:text-accent'
+                  `rounded-xl px-4 py-3 text-sm font-medium transition-colors ${isActive ? 'bg-accent text-white' : 'text-text-secondary hover:bg-accent-subtle hover:text-accent'
                   }`
                 }
               >

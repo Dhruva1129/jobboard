@@ -90,7 +90,7 @@ export const HomePage = () => {
         {/* Ambient Backgrounds */}
         <div className="absolute inset-0 bg-grid opacity-[0.25] pointer-events-none" />
         <FloatingParticles count={15} />
-        
+
         <RevealOnScroll className="relative z-10 mx-auto max-w-4xl px-4 pt-32 pb-24 text-center sm:px-6 sm:pt-40 sm:pb-32 lg:px-8">
           <div className="flex items-center justify-center gap-3 mb-8">
             <span className="flex items-center gap-1.5 rounded-full bg-accent-subtle px-3.5 py-1.5 text-xs font-semibold text-accent ring-1 ring-accent/10 shadow-sm">
@@ -100,7 +100,7 @@ export const HomePage = () => {
               <Globe className="h-3.5 w-3.5" /> Remote Friendly
             </span>
           </div>
-          
+
           <h1 className="text-[2.75rem] font-bold tracking-tight text-text-primary leading-tight sm:text-6xl">
             <TextReveal text="Find your next" />
             <br />
@@ -108,8 +108,8 @@ export const HomePage = () => {
               <TextReveal text="dream opportunity." />
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-[18px] leading-relaxed text-text-secondary">
-            Curated roles from the world's leading product and engineering teams. 
+          <p className="mx-auto mt-6 max-w-2xl text-[14px] leading-relaxed text-text-secondary">
+            Curated roles from the world's leading product and engineering teams.
             Transparent salaries, verified companies, zero noise — just careers worth pursuing.
           </p>
 
@@ -124,11 +124,11 @@ export const HomePage = () => {
                 Search
               </button>
             </div>
-            
+
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               <span className="text-sm text-text-secondary mr-1">Popular:</span>
               {POPULAR_SEARCHES.map(term => (
-                <button 
+                <button
                   key={term}
                   onClick={() => { setQuery(term); handleSearch(); }}
                   className="rounded-full bg-bg-secondary/80 px-4 py-1.5 text-sm text-text-secondary transition-all duration-200 hover:bg-accent-subtle hover:text-accent hover:shadow-sm"
@@ -174,11 +174,11 @@ export const HomePage = () => {
                 Why developers prefer Pathway
               </h2>
               <p className="mt-4 text-lg text-text-secondary leading-relaxed">
-                We believe that finding a job shouldn't feel like a full-time job. 
+                We believe that finding a job shouldn't feel like a full-time job.
                 That's why we've built a platform that puts candidate experience first.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
               <div className="group flex flex-col items-center text-center p-8 rounded-3xl bg-white border border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-premium">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white shadow-md transition-transform duration-300 group-hover:scale-110">
@@ -225,7 +225,7 @@ export const HomePage = () => {
               </p>
             </div>
           </RevealOnScroll>
-          
+
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             {HOW_IT_WORKS.map((item, i) => (
               <RevealOnScroll key={item.step} delay={i * 150}>
@@ -305,7 +305,7 @@ export const HomePage = () => {
               </p>
             </div>
           </RevealOnScroll>
-          
+
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {TESTIMONIALS.map((t, i) => (
               <RevealOnScroll key={t.author} delay={i * 100}>
